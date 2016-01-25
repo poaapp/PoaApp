@@ -1,4 +1,4 @@
-package im.actor.enterprise;
+package im.actor.vendor;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

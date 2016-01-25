@@ -1,4 +1,4 @@
-package im.actor.enterprise;
+package im.actor.vendor;
 
 import im.actor.sdk.ActorSDK;
 import im.actor.sdk.ActorSDKApplication;
@@ -8,7 +8,7 @@ public class MessengerApplication extends ActorSDKApplication {
 
     @Override
     public void onConfigureActorSDK() {
-        ActorStyle style = ActorSDK.sharedActor().style;
-        // Customize your colors here
+        // Overriding app name
+        ActorSDK.sharedActor().setAppName(getString(R.string.app_name));
     }
 }
