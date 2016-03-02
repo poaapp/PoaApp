@@ -44,38 +44,41 @@ gulp.task('webpack:dev', () => {
   });
 });
 
-gulp.task('assets', ['sounds', 'images', 'locale-data']);
+gulp.task('assets', ['sounds', 'images']);
 
 gulp.task('sounds', () => {
-  gulp.src(['node_modules/actor-sdk/build/assets/sound/**/*'])
+  return gulp.src(['node_modules/actor-sdk/build/assets/sound/**/*'])
     .pipe(gulp.dest('./dist/assets/sound'));
 });
 
 gulp.task('images', () => {
-  gulp.src(['node_modules/actor-sdk/build/assets/images/**/*'])
+  return gulp.src(['node_modules/actor-sdk/build/assets/images/**/*'])
     .pipe(gulpif(isProduction, image({svgo: false})))
     .pipe(gulp.dest('./dist/assets/images'));
 });
 
 gulp.task('html', () => {
-  gulp.src(['src/index.html'])
+  return gulp.src(['src/index.html'])
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('locale-data', () => {
-  gulp.src(['node_modules/intl/locale-data/json/**/*'])
-    .pipe(gulp.dest('./dist/assets/locale-data'));
-});
-
-gulp.task('lib', () => {
-  gulp.src(['node_modules/actor-js/interval.js'])
+gulp.task('workers', () => {
+  return gulp.src([
+    // 'node_modules/actor-sdk/build/workers/offline-worker.*',
+    // 'node_modules/actor-sdk/build/workers/serviceworker-cache-polyfill.*',
+    'node_modules/opus-recorder/libopus.js',
+    'node_modules/opus-recorder/oggopusDecoder.js',
+    'node_modules/opus-recorder/oggopusEncoder.js',
+    'node_modules/opus-recorder/resampler.js',
+  ])
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('static', ['html', 'assets', 'lib']);
+gulp.task('static', ['html', 'assets', 'workers']);
 
 gulp.task('dev', ['static', 'webpack:dev']);
 
 gulp.task('build', ['static', 'webpack:build']);
 
 gulp.task('dist', ['build']);
+gulp.task('default', ['build']);
