@@ -1,0 +1,46 @@
+default_platform :ios
+opt_out_usage
+
+platform :ios do
+
+  before_all do
+    # Checking environment
+    ensure_xcode_version(version: "7.3")
+
+    # Managing Version and Build numbers
+    version_build = ENV['BUILD_NUMBER']
+    visible_version = get_info_plist_value(path: 'Actor/Info.plist', key: 'CFBundleShortVersionString')
+    increment_build_number(build_number: version_build)
+    puts "##teamcity[buildNumber '#{visible_version}(#{version_build})']"
+
+    # Install CococaPods
+    cocoapods
+  end
+
+  desc "Building Releases"
+  lane :release do
+    release_appstore
+    release_adhoc
+  end
+
+  desc "Building for AppStore"
+  lane :release_appstore do
+    sigh(force: true)
+    gym(scheme: "Actor", output_directory: "./build_appstore")
+    deliver(ipa: "./build_appstore/Actor.ipa", force: true)
+  end
+
+  desc "Building for AdHoc"
+  lane :release_adhoc do
+    sigh(force: true, adhoc: true)
+    badge(alpha: true)
+    gym(scheme: "Actor", output_directory: "./build")
+    crashlytics(
+      crashlytics_path: './Pods/Crashlytics',
+      api_token: 'ce660b7ca79e52417a0cf34681913cb71520098f',
+      build_secret: '06fbd9f247c7cf07f3bc84f63054ca9d4b9bf508d2943984b096a97c89227cde',
+      groups: 'actor-testers',
+      notifications: true
+    )
+  end
+end
