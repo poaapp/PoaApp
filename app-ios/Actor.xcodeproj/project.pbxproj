@@ -20,7 +20,7 @@
 		063073F91BCFBFFB0053DEAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		063073FB1BCFBFFB0053DEAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		063074031BCFC2560053DEAF /* ActorSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActorSDK.framework; path = "Pods/ActorSDK-iOS/Frameworks/ActorSDK.framework"; sourceTree = "<group>"; };
-		06D26AFC1BE5AD0E008E70B6 /* Actor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Actor.entitlements; sourceTree = "<group>"; };
+		063786681CA7950C00EB3826 /* Actor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Actor.entitlements; sourceTree = "<group>"; };
 		3A3BCE672BB717C3BD188425 /* Pods-Actor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Actor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Actor/Pods-Actor.debug.xcconfig"; sourceTree = "<group>"; };
 		730EEFBC8F4DD8D1290CD896 /* Pods-Actor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Actor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Actor/Pods-Actor.release.xcconfig"; sourceTree = "<group>"; };
 		8F9DB9313BCEBD8238D7AE0D /* Pods_Actor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Actor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,9 +60,9 @@
 		063073EE1BCFBFFB0053DEAF /* Actor */ = {
 			isa = PBXGroup;
 			children = (
+				063786681CA7950C00EB3826 /* Actor.entitlements */,
 				063D4AC31BD8235600017660 /* Resources */,
 				063073EF1BCFBFFB0053DEAF /* AppDelegate.swift */,
-				06D26AFC1BE5AD0E008E70B6 /* Actor.entitlements */,
 				063073FB1BCFBFFB0053DEAF /* Info.plist */,
 			);
 			path = Actor;
@@ -343,7 +343,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/ActorSDK-iOS/Frameworks",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Actor/Info.plist";
+				INFOPLIST_FILE = Actor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = im.actor.bootstrap;
@@ -366,7 +366,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/ActorSDK-iOS/Frameworks",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Actor/Info.plist";
+				INFOPLIST_FILE = Actor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = im.actor.bootstrap;

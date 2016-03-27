@@ -19,6 +19,7 @@ platform :ios do
 
   desc "Building Releases"
   lane :release do
+    sigh(force: true, development: true)
     release_appstore
     release_adhoc
   end
