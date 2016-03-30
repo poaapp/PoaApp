@@ -27,7 +27,7 @@
     "tests"
   ],
   "dependencies": {
-    "actor-sdk": "latest",
+    "actor-sdk": "1.0.208",
     "classnames": "2.2.3",
     "react": "0.14.7"
   },
