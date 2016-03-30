@@ -51,11 +51,19 @@ gulp.task('sounds', () => {
     .pipe(gulp.dest('./dist/assets/sound'));
 });
 
-gulp.task('images', () => {
+gulp.task('images:core', () => {
   return gulp.src(['node_modules/actor-sdk/build/assets/images/**/*'])
     .pipe(gulpif(isProduction, image({svgo: false})))
     .pipe(gulp.dest('./dist/assets/images'));
 });
+
+gulp.task('images:override', ['images:core'], () => {
+  return gulp.src(['assets/images/**/*'])
+    .pipe(gulpif(isProduction, image({svgo: false})))
+    .pipe(gulp.dest('./dist/assets/images'));
+});
+
+gulp.task('images', ['images:core', 'images:override']);
 
 gulp.task('html', () => {
   return gulp.src(['src/index.html'])
@@ -64,8 +72,6 @@ gulp.task('html', () => {
 
 gulp.task('workers', () => {
   return gulp.src([
-    // 'node_modules/actor-sdk/build/workers/offline-worker.*',
-    // 'node_modules/actor-sdk/build/workers/serviceworker-cache-polyfill.*',
     'node_modules/opus-recorder/libopus.js',
     'node_modules/opus-recorder/oggopusDecoder.js',
     'node_modules/opus-recorder/oggopusEncoder.js',

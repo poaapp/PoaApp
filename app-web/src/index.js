@@ -13,9 +13,11 @@ const options = {
     'wss://front1-ws-mtproto-api-rev2.actor.im',
     'wss://front2-ws-mtproto-api-rev2.actor.im'
   ],
-  delegate: new ActorSDKDelegate(components, actions, l18n)
+  delegate: new ActorSDKDelegate(components, actions, l18n),
+  rootElement: 'poa-app',
+  appName: 'POA APP'
 };
 
-const app = new ActorSDK(options);
+const app = new ActorSDK({...options});
 
 app.startApp();

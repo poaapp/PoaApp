@@ -1,0 +1,71 @@
+@charset 'UTF-8';
+
+@import "variables";
+
+body, html,
+.login-new,
+.splash-screen,
+.sidebar {
+  background-color: $main-color;
+}
+
+.splash-screen {
+  .logo {
+    background-image: url(/assets/images/poaapp_logo.png);
+    background-size: 140px 140px;
+  }
+}
+
+.login-new {
+  .logo {
+    display: none;
+  }
+  &__welcome {
+    footer {
+      color: white;
+      a {
+        color: white;
+      }
+    }
+  }
+}
+
+.sidebar {
+  &__header {
+    &--active,
+    &:hover {
+      background-color: rgba(black, .12) !important;
+    }
+  }
+  &__list {
+    &__title {
+      color: white;
+      &__icon {
+        color: white;
+      }
+    }
+
+    &__item {
+      color: rgba(white, .9);
+      &--active {
+        color: white;
+      }
+      &:hover {
+        background-color: rgba(black, .12);
+      }
+    }
+  }
+  &__quick-search a {
+    color: rgba(white, .7);
+  }
+}
+
+.dropdown{
+  &__menu{
+    &__item {
+      &:hover {
+        background-color: $main-color !important;
+      }
+    }
+  }
+}
