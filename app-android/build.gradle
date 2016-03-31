@@ -25,17 +25,26 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "im.actor.vendor"
+
+        applicationId "com.poaapp.app.cloud"
+
         minSdkVersion 15
         targetSdkVersion 23
 
-        versionName "1.0"
+        versionName "2.5"
         if (System.getenv("BUILD_NUMBER") != null) {
             versionCode System.getenv("BUILD_NUMBER").toInteger()
-            setProperty("archivesBaseName", "Actor-$versionName-$versionCode")
+            setProperty("archivesBaseName", "PoaApp-$versionName-$versionCode")
             println "##teamcity[buildNumber '$versionName($versionCode)']"
         } else {
             versionCode 1000000
+        }
+    }
+
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res',
+                           'src/main/res-material']
         }
     }
 
@@ -60,6 +69,23 @@ android {
         }
     }
 
+    // Some technical configuration
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
+
+    dexOptions {
+        incremental true
+        preDexLibraries false
+        javaMaxHeapSize "4g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+
     lintOptions {
         abortOnError false
     }
@@ -68,10 +94,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.0'
-    compile 'im.actor:android-sdk:1.0.+'
-    compile 'im.actor:android-google-push:1.0.+'
-    compile 'io.pristine:libjingle:11139@aar'
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'im.actor:android-sdk:1.0.220'
+    compile 'im.actor:android-google-push:1.0.220'
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
         transitive = true;
     }

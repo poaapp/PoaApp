@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="AppToolbarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+
+        <item name="colorPrimaryDark">@color/accent</item>
+
+        <item name="android:colorPrimaryDark">@color/statusbar</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"></style>
+
+
+</resources>

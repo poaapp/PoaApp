@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Actor Vendors</string>
+    <string name="app_name">PoaApp</string>
+    <string name="app_vendor_name">PoaApp</string>
 </resources>
