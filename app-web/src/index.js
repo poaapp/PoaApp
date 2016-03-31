@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015-2016 Actor LLC. <https://actor.im>
+ * Copyright (C) 2016 Actor LLC. <https://actor.im>
  */
 
 import { ActorSDK, ActorSDKDelegate } from 'actor-sdk';
@@ -10,8 +10,7 @@ const l18n = {};
 
 const options = {
   endpoints: [
-    'wss://front1-ws-mtproto-api-rev2.actor.im',
-    'wss://front2-ws-mtproto-api-rev2.actor.im'
+    'ws://app.poaapp.co.tz:9080'
   ],
   delegate: new ActorSDKDelegate(components, actions, l18n),
   rootElement: 'poa-app',
