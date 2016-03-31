@@ -19,6 +19,8 @@ public class MessengerApplication extends ActorSDKApplication {
 
         ActorSDK.sharedActor().setAppName(getString(R.string.app_vendor_name));
         ActorSDK.sharedActor().setCustomApplicationName(getString(R.string.app_vendor_name));
+        ActorSDK.sharedActor().setHomePage("");
+        ActorSDK.sharedActor().setTwitter("");
         ActorSDK.sharedActor().setEndpoints(new String[]{"tcp://app.poaapp.co.tz:9070"});
 
         ActorStyle style = ActorSDK.sharedActor().style;
