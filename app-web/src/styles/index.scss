@@ -138,7 +138,7 @@ body, html,
   }
   &[disabled] {
     opacity: .2;
-    background-color: $primary-color !important;
+    // background-color: $primary-color !important;
   }
   &--flat {
     color: $primary-color;
@@ -168,9 +168,9 @@ body, html,
 .newmodal__contacts .contacts__list__item--active,
 .newmodal__groups .group__list__item--active,
 .modal--quick-search .results__item--active,
-.preferences__tabs__tab .preferences__tabs__tab--active {
-  background-color: $primary-color;
-  text-shadow: 0 1px 1px darken($primary-color, 7);
+.preferences__tabs__tab--active {
+  background-color: $primary-color !important;
+  text-shadow: 0 1px 1px darken($primary-color, 7) !important;
   .join-status {
     text-shadow: 0 1px 1px darken($primary-color, 7);
   }
@@ -188,4 +188,27 @@ body, html,
 .contacts__list__item .controls a,
 .link {
   color: $primary-color !important;
+}
+
+.radio {
+  label {
+    &:before {
+      box-shadow: 0 0 0 2px $primary-color inset !important;
+    }
+    &:after {
+      background-color: $primary-color !important;
+    }
+  }
+}
+
+.checkbox {
+  label {
+    &:before {
+      box-shadow: 0 0 0 2px $primary-color;
+    }
+  }
+  input[type='checkbox']:checked + label:before {
+    box-shadow: 0 0 0 2px $primary-color;
+    background-color: $primary-color;
+  }
 }
